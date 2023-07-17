@@ -1,0 +1,5 @@
+# for test
+cat chatids_test | cut -f1 -d ' ' > chatids
+# for production
+cat chatids_product | cut -f1 -d ' ' > chatids
+        
