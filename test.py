@@ -8,10 +8,7 @@ api_token = os.getenv('api_token')
 
 f = open("chatids")
 test_chat_ids = f.readlines()
-# for y in x:
-#     print(y.strip())
 
-# api_token = "6389110861:AAFe7nNGMArsbwi2mxGnUiGx22TiV2Far44"
 
 text = '''
 This is test message again!
