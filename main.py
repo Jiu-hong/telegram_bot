@@ -4,18 +4,31 @@ from dotenv import load_dotenv
 import requests
 
 f = open("chatids")
+# f = open("chatids_test")
 test_chat_ids = f.readlines()
+
+# print(test_chat_ids)
 
 load_dotenv()
 api_token = os.getenv('api_token')
 
 text = '''
-This is test message!
-🚨TESTNET UPGRADE to 1.5.2 ❗️
+🚨 Casper Mainnet Peregrine(1.5.6) Protocol Release - Urgent Staging Announcement 🚨
 
-All Testnet validators should stage the upgrade to casper-node v1.5.2 immediately. The upgrade is now available, and will take effect at Era 9904, which will take place on Monday July 17, around 16:16 UTC. You should be prepared *well ahead of time*, since the exact era transition time is hard to predict.  Please start staging immediately.
+We are pleased to announce the imminent release of the Casper Mainnet Peregrine(1.5.6) protocol upgrade. In preparation for this significant milestone, we kindly request that all Mainnet validators promptly initiate the staging process for the upgrade to casper-node v1.5.6.
 
-Staging your upgrade is very easy - just run the command sudo -u casper /etc/casper/node_util.py stage_protocols casper-test.conf on your node, OR follow the very simple instructions here: https://docs.cspr.community/docs/testnet/upgrade-1_5_2.html
+The activation point for this crucial upgrade is set to occur at Era 12509. Please be advised that this activation is scheduled to take place on the following date and times:
+
+2024-02-08 14:44 UTC
+2024-02-08 6:44 US/Pacific
+2024-02-08 9:44 US/Eastern
+2024-02-08 15:44 Europe/Zurich
+2024-02-08 22:44 Asia/Hong_Kong
+
+To ensure a seamless transition and to stay aligned with the Casper Network's evolving protocol, please follow the comprehensive instructions provided in the following link: 
+
+Casper 1.5.6 Upgrade Instructions.
+https://github.com/casper-network/casper-node/wiki/Stage-upgrade-to-Casper-node-v1.5.6
 '''
 
 for chat_id in test_chat_ids:   # for test
@@ -23,6 +36,7 @@ for chat_id in test_chat_ids:   # for test
 
     url = "https://api.telegram.org/bot{api_token}/sendMessage?chat_id={chat_id}&text={text}".format(
         api_token=api_token, text=text, chat_id=chat_id)
+    print(url)
 
     x = requests.get(url)
 
